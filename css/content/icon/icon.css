@@ -1,0 +1,19 @@
+.icon {
+
+}
+
+.icon_view_light {
+	fill: var(--color-icon-light);
+}
+
+.icon_view_success {
+	fill: var(--color-base-success);
+}
+
+.icon_view_warning {
+	fill: var(--color-base-warning);
+}
+
+.icon_view_alert {
+	fill: var(--color-base-alert);
+}

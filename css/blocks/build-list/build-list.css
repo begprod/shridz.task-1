@@ -1,0 +1,13 @@
+.builds-list {
+	margin-bottom: var(--space-xxxxl);
+}
+
+.build-list__inner {
+	margin: var(--space-s) 0;
+}
+
+.build-list__item {
+	display: block;
+	margin-bottom: var(--space-s);
+	text-decoration: none;
+}

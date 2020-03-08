@@ -1,0 +1,25 @@
+.icon-plus {
+	display: flex;
+}
+
+.icon-plus_vertical_center {
+	align-items: center;
+}
+
+.icon-plus__icon {
+	display: flex;
+}
+
+.icon-plus__icon_gap_xs {
+	margin-right: var(--space-xs);
+}
+
+.icon-plus__icon_gap_m {
+	margin-right: var(--space-m);
+}
+
+.icon-plus__text {}
+
+.icon-plus__text_gap_xxs {
+	margin-right: var(--space-xxs);
+}

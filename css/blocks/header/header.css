@@ -1,0 +1,38 @@
+.header {
+	padding: var(--space-m) 0;
+}
+
+.header__inner {
+	display: flex;
+	justify-content: space-between;
+}
+
+.header__title {
+	max-width: 500px;
+	padding-right: var(--space-xxxxl);
+}
+
+.header__button-holder {
+	display: flex;
+	align-items: center;
+}
+
+.header__button {
+	margin-right: var(--space-s);
+}
+
+.header__button:last-child {
+	margin-right: 0;
+}
+
+@media screen and (max-width: 768px) {
+	.header__inner {
+		align-items: flex-start;
+	}
+
+	.header__title {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+}

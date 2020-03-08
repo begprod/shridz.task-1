@@ -1,0 +1,36 @@
+.form {
+	max-width: 474px;
+	width: 100%;
+}
+
+.form__headline {
+	margin-bottom: var(--space-xxxxxl);
+}
+
+.form__title {}
+
+.form__description {}
+
+.form__input-group {}
+
+.form__input-holder {
+	margin-bottom: var(--space-xxxl);
+}
+
+.form__buttons-group {
+	margin-top: var(--space-xxxxxxl);
+}
+
+.form__buttons-group .button {
+	margin-right: var(--space-s);
+}
+
+@media screen and (max-width: 768px) {
+	.form__buttons-group .button {
+		margin-bottom: var(--space-l);
+	}
+
+	.form__buttons-group .button:last-child {
+		margin-bottom: 0;
+	}
+}
