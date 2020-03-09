@@ -28,12 +28,12 @@
 	background-color: var(--color-bg-disabled);
 }
 
-.button_view_disabled, .button:disabled .text {
-	color: var(--color-text-disabled);
+.button_view_disabled .text, .button:disabled .text {
+	color: var(--color-text-ghost);
 }
 
 .button_view_action {
-	background-color: var(--color-bg-action);
+	background-color: var(--color-bg-brand);
 }
 
 .button_view_action:hover {

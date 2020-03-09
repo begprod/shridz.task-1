@@ -13,7 +13,7 @@
 .footer__link {
 	margin-right: var(--space-l);
 	text-decoration: none;
-	color: var(--color-text-secondary);
+	color: var(--color-link);
 	font-size: var(--text-size-xs);
 	line-height: var(--text-lineheight-xs);
 }

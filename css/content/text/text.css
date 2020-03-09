@@ -1,5 +1,5 @@
 .text {
-	color: var(--color-text-default);
+	color: var(--color-text-primary);
 }
 
 .text_view_secondary {
@@ -11,19 +11,19 @@
 }
 
 .text_view_disabled {
-	color: var(--color-text-disabled);
+	color: var(--color-text-ghost);
 }
 
 .text_view_success {
-	color: var(--color-base-success);
+	color: var(--color-bg-success);
 }
 
 .text_view_warning {
-	color: var(--color-base-warning);
+	color: var(--color-bg-warning);
 }
 
 .text_view_alert {
-	color: var(--color-base-alert);
+	color: var(--color-bg-alert);
 }
 
 .text_size_xs {
