@@ -13,3 +13,9 @@
 	background-color: var(--color-bg-disabled);
 	overflow-x: auto;
 }
+
+@media screen and (max-width: 824px) {
+	.build-detail__log {
+		margin: 0 calc(var(--space-xxl) * -1);
+	}
+}
