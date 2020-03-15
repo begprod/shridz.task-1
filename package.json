@@ -1,0 +1,25 @@
+{
+  "name": "shridz.task-1",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/begprod/shridz.task-1.git"
+  },
+  "author": "Andrey Aratov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/begprod/shridz.task-1/issues"
+  },
+  "homepage": "https://github.com/begprod/shridz.task-1#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "nodegit": "^0.26.5"
+  }
+}
