@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const storage = require('./api');
+const api = require('./api');
+const gitClone = require('./helpers/git-clone');
 
 router.post('/settings', async (request, response) => {
 	try {
 		const settings = request.body;
 
-		storage.saveSettings(settings);
+		api.saveSettings(settings);
 
 		response.sendStatus(200);
 	} catch (error) {
@@ -18,9 +19,16 @@ router.post('/settings', async (request, response) => {
 
 router.get('/settings', async (request, response) => {
 	try {
-		const { data } = await storage.getSettings();
+		const settings = await api.getSettings();
+		const cloneSettings = {
+			repoName: settings.repoName,
+			branchName: settings.mainBranch,
+			buildCommand: settings.buildCommand
+		};
 
-		console.log(data);
+		await gitClone(cloneSettings.repoName, cloneSettings.branchName);
+
+		// console.log(cloneSettings);
 
 		response.sendStatus(200);
 	} catch (error) {

@@ -14,7 +14,7 @@ const apiRequest = axios.create({
 const api = {
 	saveSettings: (settings) => apiRequest.post('conf', settings),
 
-	getSettings: () => apiRequest.get('conf')
+	getSettings: () => apiRequest.get('conf').then(data => data.data.data)
 };
 
 module.exports = api;
