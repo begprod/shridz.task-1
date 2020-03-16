@@ -12,9 +12,38 @@ const apiRequest = axios.create({
 });
 
 const api = {
+	getBuildList: (offset = 0, limit = 25) => {
+		const params = new URLSearchParams();
+		params.set('offset', offset);
+		params.set('limit', limit);
+
+		return apiRequest.get('build/list', params);
+	},
+
+	getBuildLog: (buildId) => {
+		const params = new URLSearchParams();
+		params.set('buildId', buildId);
+
+		return apiRequest.get('build/log', params);
+	},
+
+
+	getBuildDetails: (buildId) => {
+		const params = new URLSearchParams();
+		params.set('buildId', buildId);
+
+		return apiRequest.get('build/details', params);
+	},
+
+	addBuild: (data) => {
+		apiRequest.post('build/request', data);
+	},
+
 	saveSettings: (settings) => apiRequest.post('conf', settings),
 
-	getSettings: () => apiRequest.get('conf').then(data => data.data.data)
+	getSettings: () => apiRequest.get('conf'),
+
+	deleteSettings: () => apiRequest.delete('conf')
 };
 
 module.exports = api;
