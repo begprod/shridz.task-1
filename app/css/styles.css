@@ -13,8 +13,6 @@
 @import "./content/icon/icon.css";
 @import "./content/text/text.css";
 
-@import "./blocks/header/header.css";
-@import "./blocks/footer/footer.css";
 @import "./blocks/main-screen/main-screen.css";
 @import "./blocks/build-list/build-list.css";
 @import "./blocks/build-card/build-card.css";
