@@ -3,6 +3,7 @@ import ReactDom from 'react-dom';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Form from './components/Form';
 
 import './css/styles.css';
 
@@ -13,7 +14,7 @@ class App extends React.Component {
 				<Header/>
 				<main className="layout page__content">
 					<div className="layout__container">
-						<h2>Hello world</h2>
+						<Form/>
 					</div>
 				</main>
 				<Footer/>
