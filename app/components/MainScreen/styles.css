@@ -1,0 +1,20 @@
+.main-screen {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.main-screen__content {
+	max-width: 250px;
+	text-align: center;
+}
+
+.main-screen__logo {
+	margin-bottom: 32px;
+}
+
+.main-screen__description {
+	margin-bottom: 24px;
+	line-height: 125%;
+}

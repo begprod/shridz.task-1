@@ -1,24 +1,40 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import {
+	BrowserRouter as Router,
+	Switch,
+	Route,
+	Link
+} from "react-router-dom";
 
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Form from './components/Form';
+import Home from './pages/Home';
+import Settings from './pages/Settings';
+import BuildHistory from './pages/BuildHistory';
+import BuildDetails from './pages/BuildDetails';
 
 import './css/styles.css';
 
 class App extends React.Component {
 	render() {
 		return (
-			<React.Fragment>
-				<Header/>
-				<main className="layout page__content">
-					<div className="layout__container">
-						<Form/>
-					</div>
-				</main>
-				<Footer/>
-			</React.Fragment>
+			<Router>
+				<React.Fragment>
+					<Switch>
+						<Route exact path="/">
+							<Home />
+						</Route>
+						<Route exact path="/settings">
+							<Settings />
+						</Route>
+						<Route exact path="/build-history">
+							<BuildDetails />
+						</Route>
+						<Route exact path="/build-details">
+							<BuildHistory />
+						</Route>
+					</Switch>
+				</React.Fragment>
+			</Router>
 		)
 	}
 }

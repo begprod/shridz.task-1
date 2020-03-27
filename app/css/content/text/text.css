@@ -76,6 +76,10 @@
 	text-overflow: ellipsis;
 }
 
+.text_decoration_no-underline {
+	text-decoration: none;
+}
+
 @media screen and (max-width: 768px) {
 	.text_size_l {
 		font-size: var(--text-size-m);
