@@ -1,4 +1,6 @@
 import React from 'react';
+import Button from "../Button";
+
 import './styles.css';
 
 export default class Form extends React.Component {
@@ -56,12 +58,8 @@ export default class Form extends React.Component {
 						</div>
 					</div>
 					<div className="form__buttons-group">
-						<button className="button button_view_action">
-							<span className="text text_size_xs text_height_xl button__text">Save</span>
-						</button>
-						<button className="button" type="reset">
-							<span className="text text_size_xs text_height_xl button__text">Cancel</span>
-						</button>
+						<Button tag="button" text="Save" buttonClass="button_view_action"/>
+						<Button tag="button" text="Cancel" buttonType="reset"/>
 					</div>
 				</div>
 			</form>

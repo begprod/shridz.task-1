@@ -16,7 +16,7 @@ export default class Header extends React.Component {
 						{ this.props.title }
 					</a>
 					<div className="header__button-holder">
-						<Button buttonClass="button_view_icon header__button" link="/settings" text="Settings" iconType="gear"/>
+						<Button link="/settings" buttonClass="button_view_icon header__button" textClass="text_size_xs text_height_m" text="Settings" iconType="gear"/>
 					</div>
 				</div>
 			</header>
