@@ -8,11 +8,16 @@ export default class Input extends React.Component {
 	}
 	render() {
 		return (
-			<div>Input</div>
+			<input
+				className="input"
+				id={this.props.id}
+				name={this.props.name}
+				type={this.props.type}
+				placeholder={this.props.placeholder} />
 		)
 	}
 }
 
 Input.defaultProps = {
-
+	type: 'text'
 };

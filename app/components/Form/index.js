@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from "../Button";
+import FieldSet from "../Fieldset";
 
 import './styles.css';
 
@@ -14,12 +15,7 @@ export default class Form extends React.Component {
 				</div>
 				<div className="form__input-group">
 					<div className="form__input-holder">
-						<div className="fieldset fieldset_required">
-							<label className="text text_size_xs text_height_s fieldset__label" htmlFor="repo">GitHub repository</label>
-							<div className="fieldset__input">
-								<input className="input" id="repo" name="repo" type="text" placeholder="user-name/repo-name" />
-							</div>
-						</div>
+						<FieldSet labelText="GitHub repository" labelFor="repo"/>
 					</div>
 					<div className="form__input-holder">
 						<div className="fieldset">

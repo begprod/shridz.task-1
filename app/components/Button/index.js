@@ -31,7 +31,5 @@ export default class Button extends React.Component {
 Button.defaultProps = {
 	tag: 'a',
 	text: 'Button',
-	textClass: 'text_size_xs text_height_xl',
-	iconType: '',
-	buttonClass: ''
+	textClass: 'text_size_xs text_height_xl'
 };
