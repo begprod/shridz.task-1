@@ -20,18 +20,10 @@ class App extends React.Component {
 			<Router>
 				<React.Fragment>
 					<Switch>
-						<Route exact path="/">
-							<Home />
-						</Route>
-						<Route exact path="/settings">
-							<Settings />
-						</Route>
-						<Route exact path="/build-details">
-							<BuildDetails />
-						</Route>
-						<Route exact path="/build-history">
-							<BuildHistory />
-						</Route>
+						<Route exact path="/" component={Home} />
+						<Route exact path="/settings" component={Settings} />
+						<Route exact path="/build-details" component={BuildDetails} />
+						<Route exact path="/build-history" component={BuildHistory} />
 					</Switch>
 				</React.Fragment>
 			</Router>

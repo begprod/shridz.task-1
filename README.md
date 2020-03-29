@@ -1,7 +1,21 @@
 ### Run server
 
 ```
-node server/server.js
+node server.js
 ```
 
 `node v13.9.0`
+
+---
+
+### Run react dev server
+
+```
+npm run dev
+```
+
+### Run react production build
+
+```
+npm run build
+```
