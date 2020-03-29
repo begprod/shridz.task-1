@@ -1,6 +1,22 @@
 .build-card {
 	position: relative;
-	padding-left: 56px;
+	display: flex;
+	justify-content: space-between;
+	padding: var(--space-l) var(--space-xxxxxxl) var(--space-l) 56px;
+	border-radius: var(--border-radius-size-s);
+	background-color: var(--color-bg-default);
+	box-shadow: 0 1px 1px rgba(67, 68, 69, 0.3), 0 0 1px rgba(67, 68, 69, 0.3);
+	transition: box-shadow .3s ease-in-out;
+}
+
+.build-card:hover {
+	box-shadow: 0 2px 8px rgba(67, 68, 69, 0.3), 0 0 1px rgba(67, 68, 69, 0.3);
+}
+
+.build-card_hover_off {}
+
+.build-card_hover_off:hover {
+	box-shadow: 0 1px 1px rgba(67, 68, 69, 0.3), 0 0 1px rgba(67, 68, 69, 0.3);
 }
 
 .build-card_column {
@@ -73,6 +89,7 @@
 	.build-card {
 		display: flex;
 		flex-direction: column;
+		padding-right: var(--space-s);
 		padding-left: 36px;
 	}
 

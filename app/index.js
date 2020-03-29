@@ -26,10 +26,10 @@ class App extends React.Component {
 						<Route exact path="/settings">
 							<Settings />
 						</Route>
-						<Route exact path="/build-history">
+						<Route exact path="/build-details">
 							<BuildDetails />
 						</Route>
-						<Route exact path="/build-details">
+						<Route exact path="/build-history">
 							<BuildHistory />
 						</Route>
 					</Switch>

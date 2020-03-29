@@ -7,12 +7,11 @@ export default class Button extends React.Component {
 		super(props);
 	}
 	render() {
-
 		return (
 			<this.props.tag
 				className={`button ${this.props.buttonClass}`}
-				href={(this.props.link ? this.props.link : false)}
-				type={(this.props.buttonType ? this.props.buttonType : false)}
+				href={(this.props.link ? this.props.link : undefined)}
+				type={(this.props.buttonType ? this.props.buttonType : undefined)}
 			>
 
 				<span
