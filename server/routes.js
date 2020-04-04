@@ -19,4 +19,28 @@ router.get('/settings', asyncHandler(async(request, response) => {
 	await response.json(data);
 }));
 
+router.post('/builds/:commitHash', asyncHandler(async (request, response) => {
+	const { params: { commitHash } } = request;
+	const info = await git.getCommitInfo(commitHash);
+	const list = await api.getBuildList();
+	const build = list.data.data.find((el) => el.commitHash === info.commitHash);
+
+	response.send(build);
+}));
+
+router.get('/builds/:buildId', asyncHandler(async (request, response) => {
+	const { params: { buildId } } = request;
+	const { data } = await api.getBuildDetails(buildId);
+
+	await response.json(data);
+}));
+
+router.get('/builds/:buildId/logs', asyncHandler(async (request, response) => {
+	const { params: { buildId } } = request;
+	const {data: {data: { commitHash, status }}} = await api.getBuildDetails(buildId);
+	const log = await api.getBuildLog(buildId);
+
+	await response.json(data);
+}));
+
 module.exports = router;
