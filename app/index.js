@@ -3,8 +3,7 @@ import ReactDom from 'react-dom';
 import {
 	BrowserRouter as Router,
 	Switch,
-	Route,
-	Link
+	Route
 } from "react-router-dom";
 
 import Home from './pages/Home';
@@ -18,14 +17,12 @@ class App extends React.Component {
 	render() {
 		return (
 			<Router>
-				<React.Fragment>
-					<Switch>
-						<Route exact path="/" component={Home} />
-						<Route exact path="/settings" component={Settings} />
-						<Route exact path="/build-details" component={BuildDetails} />
-						<Route exact path="/build-history" component={BuildHistory} />
-					</Switch>
-				</React.Fragment>
+				<Switch>
+					<Route exact path="/" component={Home} />
+					<Route path="/settings" component={Settings} />
+					<Route path="/build-details" component={BuildDetails} />
+					<Route path="/build-history" component={BuildHistory} />
+				</Switch>
 			</Router>
 		)
 	}
