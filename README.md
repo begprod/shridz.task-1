@@ -1,3 +1,9 @@
+### Authorization token 
+
+[Here](https://hw.shri.yandex/)
+
+---
+
 ### Run server
 
 ```

@@ -17,14 +17,14 @@ const api = {
 		params.set('offset', offset);
 		params.set('limit', limit);
 
-		return apiRequest.get('build/list', params);
+		return apiRequest.get('build/list', { params });
 	},
 
 	getBuildLog: (buildId) => {
 		const params = new URLSearchParams();
 		params.set('buildId', buildId);
 
-		return apiRequest.get('build/log', params);
+		return apiRequest.get('build/log', { params });
 	},
 
 
@@ -32,12 +32,18 @@ const api = {
 		const params = new URLSearchParams();
 		params.set('buildId', buildId);
 
-		return apiRequest.get('build/details', params);
+		return apiRequest.get('build/details', { params });
 	},
 
 	addBuild: (data) => {
 		apiRequest.post('build/request', data);
 	},
+
+	buildStart: (data) => api.post('build/start', data),
+
+	buildFinish: (data) => api.post('build/finish', data),
+
+	buildCancel: (model) => api.post('build/cancel', model),
 
 	saveSettings: (settings) => apiRequest.post('conf', settings),
 
