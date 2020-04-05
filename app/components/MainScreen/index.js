@@ -20,5 +20,5 @@ export default class MainScreen extends React.Component {
 }
 
 MainScreen.defaultProps = {
-	image: '../../assets/images/logo.svg'
+	image: './assets/images/logo.svg'
 };
