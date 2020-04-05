@@ -15,8 +15,14 @@ export default class FieldSet extends React.Component {
 					htmlFor={this.props.labelFor}>
 					{this.props.labelText}
 				</label>
+
 				<div className="fieldset__input">
-					<Input id={this.props.labelFor} name={this.props.labelFor} type={this.props.inputType} placeholder={this.props.labelText}/>
+					<Input
+						id={this.props.labelFor}
+						name={this.props.labelFor}
+						type={this.props.inputType}
+						value={this.props.value}
+						placeholder={this.props.labelText}/>
 				</div>
 			</div>
 		)

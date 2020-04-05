@@ -15,18 +15,15 @@ export default class Form extends React.Component {
 
 	componentWillMount() {
 		this.getSettings();
-		console.log('asdasd');
 	}
 
 	getSettings() {
-		axios.get( 'http://127.0.0.1:3000/api/settings',
-			{
-				headers: {
-					'Access-Control-Allow-Origin': '*',
-				}
-			})
+		axios.get( 'http://localhost:3000/api/settings')
 			.then(response => {
-				console.log(response);
+				console.log(response.data);
+				this.setState({
+					settings: response.data.data
+				})
 			})
 			.catch(error => {
 				console.log(error);
@@ -35,29 +32,31 @@ export default class Form extends React.Component {
 
 	render() {
 		return (
-			<form className="form" action="">
+			<form className="form">
 				<div className="form__headline">
 					<h2 className="text text_size_s text_height_xm">Settings</h2>
-					<p className="text text_size_xs text_height_s text_view_secondary">Configure repository connection
-						and synchronization settings.</p>
+					<p className="text text_size_xs text_height_s text_view_secondary">Configure repository connection and synchronization settings.</p>
 				</div>
 				<div className="form__input-group">
 					<div className="form__input-holder">
-						<FieldSet labelText="GitHub repository" labelFor="repoName"/>
+						<FieldSet
+							labelText="GitHub repository"
+							labelFor="repoName"
+							value={this.state.settings.repoName}/>
 					</div>
 					<div className="form__input-holder">
-						<FieldSet labelText="Build command" labelFor="buildCommand"/>
+						<FieldSet
+							labelText="Build command"
+							labelFor="buildCommand"
+							value={this.state.settings.buildCommand}
+						/>
 					</div>
 					<div className="form__input-holder">
-						<FieldSet labelText="Main branch" labelFor="mainBranch"/>
-					</div>
-					<div className="form__input-holder">
-						<div className="fieldset fieldset_view_row">
-							<label className="text text_size_xs text_height_s fieldset__label" htmlFor="period">Synchronize every</label>
-							<input className="input input_view_small" id="period" name="period" type="text" placeholder="10" />
-								<div className="text text_size_xs text_height_s text_view_additional fieldset__value">minutes
-								</div>
-						</div>
+						<FieldSet
+							labelText="Main branch"
+							labelFor="mainBranch"
+							value={this.state.settings.mainBranch}
+						/>
 					</div>
 					<div className="form__buttons-group">
 						<Button tag="button" text="Save" buttonClass="button_view_action"/>

@@ -5,7 +5,7 @@ import Form from "../components/Form";
 
 const Settings = () => (
 	<React.Fragment>
-		<Header/>
+		<Header showButtons={false}/>
 		<main className="layout page__content">
 			<div className="layout__container">
 				<Form/>

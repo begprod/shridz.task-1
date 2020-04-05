@@ -8,6 +8,20 @@ export default class Header extends React.Component {
 	constructor(props) {
 		super(props);
 	}
+
+	showButtons() {
+		if (this.props.showButtons) {
+			return <div className="header__button-holder">
+				<Button
+					link="/settings"
+					buttonClass="button_view_icon header__button"
+					textClass="text_size_xs text_height_m"
+					text="Settings"
+					iconType="gear"/>
+			</div>
+		}
+	}
+
 	render() {
 		return (
 			<header className="layout header">
@@ -15,9 +29,8 @@ export default class Header extends React.Component {
 					<a className="text text_size_l text_height_l text_view_secondary text_decoration_no-underline" href="/">
 						{ this.props.title }
 					</a>
-					<div className="header__button-holder">
-						<Button link="/settings" buttonClass="button_view_icon header__button" textClass="text_size_xs text_height_m" text="Settings" iconType="gear"/>
-					</div>
+
+					{this.showButtons()}
 				</div>
 			</header>
 		)
@@ -25,5 +38,6 @@ export default class Header extends React.Component {
 }
 
 Header.defaultProps = {
-	title: 'School CI server'
+	title: 'School CI server',
+	showButtons: true
 };
