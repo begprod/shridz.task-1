@@ -1,10 +1,38 @@
 import React from 'react';
 import Button from "../Button";
 import FieldSet from "../Fieldset";
+import axios from 'axios';
 
 import './styles.css';
 
 export default class Form extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			settings: {}
+		}
+	}
+
+	componentWillMount() {
+		this.getSettings();
+		console.log('asdasd');
+	}
+
+	getSettings() {
+		axios.get( 'http://127.0.0.1:3000/api/settings',
+			{
+				headers: {
+					'Access-Control-Allow-Origin': '*',
+				}
+			})
+			.then(response => {
+				console.log(response);
+			})
+			.catch(error => {
+				console.log(error);
+			})
+	}
+
 	render() {
 		return (
 			<form className="form" action="">
@@ -15,40 +43,18 @@ export default class Form extends React.Component {
 				</div>
 				<div className="form__input-group">
 					<div className="form__input-holder">
-						<FieldSet labelText="GitHub repository" labelFor="repo"/>
+						<FieldSet labelText="GitHub repository" labelFor="repoName"/>
 					</div>
 					<div className="form__input-holder">
-						<div className="fieldset">
-							<label className="text text_size_xs text_height_s fieldset__label" htmlFor="build">Build command</label>
-							<div className="fieldset__input fieldset__input_view_icon">
-								<input className="input" id="build" name="build" type="text" placeholder="Build command" />
-									<span className="icon icon_view_light">
-										<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M8 16C3.6 16 0 12.4 0 8C0 3.6 3.6 0 8 0C12.4 0 16 3.6 16 8C16 12.4 12.4 16 8 16ZM12 5.12L10.88 4L8 6.88L5.12 4L4 5.12L6.88 8L4 10.88L5.12 12L8 9.12L10.88 12L12 10.88L9.12 8L12 5.12Z"/>
-										</svg>
-									</span>
-							</div>
-						</div>
+						<FieldSet labelText="Build command" labelFor="buildCommand"/>
 					</div>
 					<div className="form__input-holder">
-						<div className="fieldset">
-							<label className="text text_size_xs text_height_s fieldset__label" htmlFor="branch">Main branch</label>
-							<div className="fieldset__input fieldset__input_view_icon">
-								<input className="input" id="branch" name="branch" type="text" placeholder="Main branch" />
-										<span className="icon icon_view_light">
-											<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-												<path
-													d="M8 16C3.6 16 0 12.4 0 8C0 3.6 3.6 0 8 0C12.4 0 16 3.6 16 8C16 12.4 12.4 16 8 16ZM12 5.12L10.88 4L8 6.88L5.12 4L4 5.12L6.88 8L4 10.88L5.12 12L8 9.12L10.88 12L12 10.88L9.12 8L12 5.12Z"/>
-											</svg>
-										</span>
-							</div>
-						</div>
+						<FieldSet labelText="Main branch" labelFor="mainBranch"/>
 					</div>
 					<div className="form__input-holder">
 						<div className="fieldset fieldset_view_row">
-							<label className="text text_size_xs text_height_s fieldset__label" htmlFor="test">Synchronize every</label>
-							<input className="input input_view_small" id="test" name="test" type="text" placeholder="10" />
+							<label className="text text_size_xs text_height_s fieldset__label" htmlFor="period">Synchronize every</label>
+							<input className="input input_view_small" id="period" name="period" type="text" placeholder="10" />
 								<div className="text text_size_xs text_height_s text_view_additional fieldset__value">minutes
 								</div>
 						</div>

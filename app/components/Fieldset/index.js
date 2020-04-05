@@ -9,7 +9,7 @@ export default class FieldSet extends React.Component {
 	}
 	render() {
 		return (
-			<div className="fieldset fieldset_required">
+			<div className="fieldset">
 				<label
 					className="text text_size_xs text_height_s fieldset__label"
 					htmlFor={this.props.labelFor}>
