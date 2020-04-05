@@ -20,7 +20,6 @@ export default class Form extends React.Component {
 	getSettings() {
 		axios.get( 'http://localhost:3000/api/settings')
 			.then(response => {
-				console.log(response.data);
 				this.setState({
 					settings: response.data.data
 				})
@@ -30,9 +29,25 @@ export default class Form extends React.Component {
 			})
 	}
 
+	onSubmit(event) {
+		event.preventDefault();
+
+		const formData = new FormData(event.target);
+		const body = {};
+
+		formData.forEach((value, property) => {
+			if (property === 'period') {
+				value = Number(value);
+			}
+			body[property] = value
+		});
+
+		axios.post('http://localhost:3000/api/settings', body);
+	}
+
 	render() {
 		return (
-			<form className="form">
+			<form className="form" onSubmit={event => this.onSubmit(event)}>
 				<div className="form__headline">
 					<h2 className="text text_size_s text_height_xm">Settings</h2>
 					<p className="text text_size_xs text_height_s text_view_secondary">Configure repository connection and synchronization settings.</p>
@@ -42,7 +57,8 @@ export default class Form extends React.Component {
 						<FieldSet
 							labelText="GitHub repository"
 							labelFor="repoName"
-							value={this.state.settings.repoName}/>
+							value={this.state.settings.repoName}
+						/>
 					</div>
 					<div className="form__input-holder">
 						<FieldSet
@@ -58,9 +74,17 @@ export default class Form extends React.Component {
 							value={this.state.settings.mainBranch}
 						/>
 					</div>
+					<div style={{display: 'none'}} className="form__input-holder">
+						<FieldSet
+							labelText="period"
+							labelFor="period"
+							value={this.state.settings.period}
+							type="number"
+						/>
+					</div>
 					<div className="form__buttons-group">
 						<Button tag="button" text="Save" buttonClass="button_view_action"/>
-						<Button tag="button" text="Cancel" buttonType="reset"/>
+						<Button text="Cancel" link="/"/>
 					</div>
 				</div>
 			</form>

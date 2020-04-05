@@ -28,7 +28,7 @@ class Repository {
 				this.settings = data;
 
 				if (!this.checkLocalRepository()) {
-					await this.cloneRepo(data.repoName);
+					await this.cloneRepository(data.repoName);
 
 					await this.checkout(data.mainBranch);
 				}
@@ -47,7 +47,7 @@ class Repository {
 			const { repoName, mainBranch } = settings;
 
 			if (repoName !== this.settings.repoName) {
-				await this.cloneRepo(repoName);
+				await this.cloneRepository(repoName);
 
 				await this.checkout(mainBranch);
 
@@ -55,7 +55,7 @@ class Repository {
 			} else if (mainBranch !== this.settings.mainBranch) {
 				await this.checkout(mainBranch);
 			}
-
+			console.log(`> Save settings`);
 			await api.saveSettings(settings);
 
 			this.settings = settings;
@@ -66,7 +66,7 @@ class Repository {
 		}
 	}
 
-	async cloneRepo(repoName) {
+	async cloneRepository(repoName) {
 		await this.deleteRepository();
 
 		console.log(`Clone repository ${repoName}`);
@@ -91,13 +91,14 @@ class Repository {
 	async checkLocalRepository() {
 		try {
 			const stat = fs.statSync(`${this.localFolderName}`);
-
-			console.log(stat);
 			console.log('> Local repository is exist');
 
 			return stat.isDirectory();
 		} catch (error) {
 			console.log('> Local repository not found');
+			const { data: { data } } = await api.getSettings();
+
+			await this.cloneRepository(data.repoName);
 			return false;
 		}
 	}
