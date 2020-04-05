@@ -18,9 +18,10 @@ export default class BuildCard extends React.Component {
 				<div className="build-card__main-info">
 					<div className="build-card__title">
 						<div className="text text_size_s text_height_xm text_decoration_overflow">
-							<span className={`text text_size_m text_height_xm text_vertical_center text_d text_view_${this.props.status}`}>#1368</span> add
-							documentation for postgres scaler add documentation for postgres scaler add documentation
-							for postgres scaler
+							<span className={`text text_size_m text_height_xm text_vertical_center text_d text_view_${this.props.status}`}>
+								{this.props.buildNumber}
+							</span>
+							{this.props.commitMessage}
 						</div>
 					</div>
 					<div className="build-card__meta">
@@ -32,10 +33,12 @@ export default class BuildCard extends React.Component {
 								</svg>
 							</div>
 							<div
-								className="text text_size_xs text_height_xs text_decoration_overflow icon-plus__text icon-plus__text_gap_xxs">master
+								className="text text_size_xs text_height_xs text_decoration_overflow icon-plus__text icon-plus__text_gap_xxs">
+								{this.props.branchName}
 							</div>
 							<div
-								className="text text_size_xs text_height_xs text_view_additional icon-plus__text">9c9f0b9
+								className="text text_size_xs text_height_xs text_view_additional icon-plus__text">
+								{this.props.commitHash}
 							</div>
 						</div>
 						<div className="icon-plus icon-plus_vertical_center build-card__meta-item">
@@ -46,7 +49,8 @@ export default class BuildCard extends React.Component {
 								</svg>
 							</div>
 							<div
-								className="text text_size_xs text_height_xs icon-plus__text icon-plus__text_gap_xxs">Philip Kirkorov
+								className="text text_size_xs text_height_xs icon-plus__text icon-plus__text_gap_xxs">
+								{this.props.authorName}
 							</div>
 						</div>
 					</div>

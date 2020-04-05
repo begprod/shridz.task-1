@@ -42,7 +42,15 @@ export default class Form extends React.Component {
 			body[property] = value
 		});
 
-		axios.post('http://localhost:3000/api/settings', body);
+		axios.post('http://localhost:3000/api/settings', body)
+			.then(response => {
+				console.log(response);
+				if (response.status === 200) {
+					window.location = '/build-history'
+				}
+			}).catch(error => {
+				console.log(error);
+		});
 	}
 
 	render() {
