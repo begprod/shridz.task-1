@@ -1,2 +1,6 @@
-*.DS_store
 .idea
+node_modules
+dist
+clone-repo
+*.DS_store
+.env
